@@ -1,0 +1,22 @@
+
+### 1. Create an organization
+POST http://localhost:8081/api/v1/orgs
+Content-Type: application/json
+
+{
+  "name": "Zomato"
+}
+
+### 2. Get all organizations
+GET http://localhost:8081/api/v1/orgs
+
+### 3. Get an organization that does not exist
+GET http://localhost:8081/api/v1/orgs/00000000-0000-0000-0000-000000000000
+
+### 4. Test validation with an empty name
+POST http://localhost:8081/api/v1/orgs
+Content-Type: application/json
+
+{
+  "name": ""
+}
