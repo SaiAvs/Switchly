@@ -22,7 +22,7 @@ public class FlagService {
     }
 
     public Flag create(UUID projectId, String key, String name) {
-        Project project = projectService.getById(projectId);  // 404 if it doesn't exist
+        Project project = projectService.findById(projectId);  // 404 if it doesn't exist
 
         if (flagRepository.existsByProjectIdAndKey(projectId, key)) {
             throw new ConflictException("A flag with key '" + key + "' already exists in this project");
@@ -38,7 +38,7 @@ public class FlagService {
     }
 
     public List<Flag> getAllForProject(UUID projectId) {
-        projectService.getById(projectId);  // 404 if it doesn't exist
+        projectService.findById(projectId);  // 404 if it doesn't exist
         return flagRepository.findByProjectId(projectId);
     }
 

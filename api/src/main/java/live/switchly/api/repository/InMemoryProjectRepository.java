@@ -1,3 +1,4 @@
+
 package live.switchly.api.repository;
 
 import live.switchly.api.model.Project;
@@ -29,7 +30,8 @@ public class InMemoryProjectRepository implements ProjectRepository {
     public List<Project> findByOrganizationId(UUID organizationId) {
         return store.values()
                 .stream()
-                .filter(p -> p.getOrganizationId().equals(organizationId))
+                .filter(project ->
+                        project.getOrganizationId().equals(organizationId))
                 .toList();
     }
 }
